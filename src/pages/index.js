@@ -23,7 +23,7 @@ const Index = ({data}) =>  {
           <Card
            key={sparkProject.title}
            title={sparkProject.title}
-           image={sparkProject.screenshot[0].file.url}
+           image={sparkProject.screenshot.file.url}
            url={sparkProject.url}
            tagline={sparkProject.tagline}
            tags={sparkProject.tags}
