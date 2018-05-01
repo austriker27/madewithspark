@@ -45,10 +45,11 @@ const Tagline = styled.h3`
   color: gray;
 `;
 
-const Tags = styled.h3`
-  margin: 0 1rem 1.5rem 1rem;
-  color: gray;
-`;
+// const Tags = styled.h3`
+//   margin: 0 1rem 1.5rem 1rem;
+//   color: gray;
+// `;
+// <Tags>{props.tags}</Tags>
 
 const url = styled.h3`
   margin: 0 1rem 1.5rem 1rem;
@@ -64,11 +65,14 @@ const Card = (props) => {
   return (
     <Post>
       <Link to={`/${props.url}/`}>
-      
+        <Image 
+          title={props.title}
+          sizes={props.screenshot.sizes}
+        />
         
         <Title>{props.title}</Title>
-        <Tagline>{props.tagline}</Tagline>
-        <Tags>{props.tagline}</Tags>
+        <Tagline>{props.url}</Tagline>
+  
         
       </Link>
     </Post>

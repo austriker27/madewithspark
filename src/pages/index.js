@@ -42,6 +42,12 @@ export const query = graphql`
           title
           tagline 
           screenshot {
+            resolutions(width: 75) {
+              ...GatsbyContentfulResolutions
+            }
+            file {
+              url
+            }
             id
           }
           id
