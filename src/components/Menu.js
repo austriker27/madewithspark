@@ -6,6 +6,7 @@ const Header = styled.header`
   background: ${props => props.theme.colors.base};
   width: 100%;
   padding: 1.5em 0;
+  border-top: 6px solid #DEAD65;
 `
 const Nav = styled.nav`
   width: 100%;
