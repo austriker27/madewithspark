@@ -9,22 +9,24 @@ import PageTitle from '../components/PageTitle'
 
 const Index = ({data}) =>  {
 
-  const posts = data.allContentfulPost.edges;
+  const projects = data.allContentfulSparkProject.edges;
+
+  console.log(projects);
 
   return (
     <Container>
       <PageTitle small>
-        <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a>, <a href="https://www.contentful.com/" target="_blank">Contentful</a> and <a href="https://www.netlify.com/" target="_blank">Netlify</a> <span>🎉</span>
+        Made With Spark
       </PageTitle>
       <CardList>
-        {posts.map(({ node: post })=> (
+        {projects.map(({ node: sparkProject })=> (
           <Card
-           key={post.id}
-           slug={post.slug}
-           image={post.heroImage}
-           title={post.title}
-           date={post.publishDate}
-           excerpt={post.body}
+           key={sparkProject.title}
+           slug={sparkProject.tags}
+           image={sparkProject.screenshot}
+           title={sparkProject.title}
+           date={sparkProject.website}
+           excerpt={sparkProject.tagline}
           />
         ))}
       </CardList>
@@ -34,25 +36,11 @@ const Index = ({data}) =>  {
 
 export const query = graphql`
   query indexQuery {
-    allContentfulPost(limit: 1000, sort: {fields: [publishDate], order: DESC}) {
+    allContentfulSparkProject(limit: 1000) {
       edges {
         node {
           title
-          id
-          slug
-          publishDate(formatString: "MMMM DD, YYYY")
-          heroImage {
-            title
-            sizes(maxWidth: 800) {
-              ...GatsbyContentfulSizes_withWebp_noBase64
-            }
-          }
-          body {
-            childMarkdownRemark {
-              html
-              excerpt(pruneLength: 80)
-            }
-          }
+          tagline 
         }
       }
     }
@@ -60,3 +48,28 @@ export const query = graphql`
 `
 
 export default Index
+
+
+// query indexQuery {
+//   allContentfulSparkProject(limit: 1000, sort: {fields: [publishDate], order: DESC}) {
+//     edges {
+//       node {
+//         title
+//         id
+//         slug
+//         website       
+//         heroImage {
+//           screenshot
+//           sizes(maxWidth: 800) {
+//             ...GatsbyContentfulSizes_withWebp_noBase64
+//           }
+//         }
+//         body {
+//           tagline
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+// `
