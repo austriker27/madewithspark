@@ -65,13 +65,13 @@ const Card = (props) => {
   return (
     <Post>
       <Link to={`/${props.url}/`}>
-        <Image 
+        <img 
           title={props.title}
-          sizes={props.screenshot.sizes}
+          sizes={props.screenshot}
         />
         
         <Title>{props.title}</Title>
-        <Tagline>{props.url}</Tagline>
+        <Tagline>{props.tagline}</Tagline>
   
         
       </Link>
