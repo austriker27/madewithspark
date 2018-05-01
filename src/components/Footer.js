@@ -45,7 +45,11 @@ const Footer = () => (
   <Wrapper>
     <List>
       <Item><a href="https://www.contentful.com/" rel="nofollow" target="_blank"><img src="https://images.ctfassets.net/fo9twyrwpveg/44baP9Gtm8qE2Umm8CQwQk/c43325463d1cb5db2ef97fca0788ea55/PoweredByContentful_LightBackground.svg" style={{width:"100px"}} alt="Powered by Contentful" /></a></Item>
-      <Item><a href="https://github.com/ryanwiemer/gatsby-starter-gcn" target="_blank">gatsby-starter-gcn</a> by <a href="https://github.com/ryanwiemer" target="_blank">@ryanwiemer</a></Item>
+      <Item>© 2018. Built with 💛 by <a href="http://davidalindahl.com" target="_blank">David A. Lindahl</a>
+      </Item>
+      <Item>
+        <a href="https://twitter.com/MadeWithSpark?ref_src=twsrc%5Etfw" className="twitter-follow-button" data-show-count="false">Follow @MadeWithSpark</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </Item>
     </List>
   </Wrapper>
 )
