@@ -200,7 +200,7 @@ class SubmitForm extends React.Component {
 
         <Email name="email" type="email" placeholder="Email (Optional)" value={this.state.email} onChange={this.handleInputChange}/>
 
-        <InputBox name="twitter" type="text" placeholder="Twitter handle" value={this.state.twitter} onChange={this.handleInputChange} required/>
+        <InputBox name="twitter" type="text" placeholder="Project/Creator Twitter" value={this.state.twitter} onChange={this.handleInputChange}/>
 
         <Submit name="submit" type="submit" value="Submit Project" />
 
