@@ -52,7 +52,7 @@ const Menu = () => {
           <ul>
             <li><Link to="/" exact activeStyle={activeLinkStyle}>Home</Link></li>  
             <li><Link to="/Submit/" activeStyle={activeLinkStyle}>Submit Project</Link></li>
-            <li><Link to="/about/" activeStyle={activeLinkStyle}>About</Link></li>
+            <li><Link to="/about/" activeStyle={activeLinkStyle}>About MWS</Link></li>
           </ul>
         </Nav>
       </Header>

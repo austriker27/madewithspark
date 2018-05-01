@@ -40,7 +40,17 @@ const Title = styled.h2`
   margin: 1rem 1rem .5rem 1rem;
 `;
 
-const Date = styled.h3`
+const Tagline = styled.h3`
+  margin: 0 1rem 1.5rem 1rem;
+  color: gray;
+`;
+
+const Tags = styled.h3`
+  margin: 0 1rem 1.5rem 1rem;
+  color: gray;
+`;
+
+const url = styled.h3`
   margin: 0 1rem 1.5rem 1rem;
   color: gray;
 `;
@@ -53,11 +63,13 @@ const Excerpt = styled.p`
 const Card = (props) => {
   return (
     <Post>
-      <Link to={`/${props.slug}/`}>
-        <Img sizes={props.image.sizes} backgroundColor={'#eeeeee'} />
+      <Link to={`/${props.url}/`}>
+      
+        
         <Title>{props.title}</Title>
-        <Date>{props.date}</Date>
-        <Excerpt dangerouslySetInnerHTML={{ __html: props.excerpt.childMarkdownRemark.excerpt }}/>
+        <Tagline>{props.tagline}</Tagline>
+        <Tags>{props.tagline}</Tags>
+        
       </Link>
     </Post>
   )

@@ -22,11 +22,11 @@ const Index = ({data}) =>  {
         {projects.map(({ node: sparkProject })=> (
           <Card
            key={sparkProject.title}
-           slug={sparkProject.tags}
-           image={sparkProject.screenshot}
            title={sparkProject.title}
-           date={sparkProject.website}
-           excerpt={sparkProject.tagline}
+           image={sparkProject.screenshot}
+           url={sparkProject.url}
+           tagline={sparkProject.tagline}
+           tags={sparkProject.tags}
           />
         ))}
       </CardList>
@@ -41,9 +41,14 @@ export const query = graphql`
         node {
           title
           tagline 
+          screenshot {
+            id
+          }
+          id
+          url
         }
       }
-    }
+	  }
   }
 `
 
