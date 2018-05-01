@@ -3,11 +3,6 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import 'whatwg-fetch' // Fetch Polyfill
 
-/*
-  ⚠️ This is an example of a contact form powered with Netlify form handling.
-  Be sure to review the Netlify documentation for more information:
-  https://www.netlify.com/docs/form-handling/
-*/
 
 const Form = styled.form`
   max-width: ${props => props.theme.sizes.maxWidthCentered};
@@ -50,7 +45,7 @@ const Form = styled.form`
   }
 `
 
-const Name = styled.input`
+const InputBox = styled.input`
   margin: 0 0 1em 0;
   width: 100%;
   @media (min-width: ${props => props.theme.responsive.small}) {
@@ -139,14 +134,16 @@ const encode = (data) => {
    .join("&");
 }
 
-class ContactForm extends React.Component {
+class SubmitForm extends React.Component {
 
   constructor (props) {
     super(props)
     this.state = {
-      name: '',
-      email: '',
-      message:'',
+      projectName: '',
+      projectTagline: '',
+      projectUrl: '',
+      email:'',
+      twitter:'',
       showModal: false
     };
   }
@@ -173,9 +170,11 @@ class ContactForm extends React.Component {
 
   handleSuccess = () =>  {
     this.setState({
-      name: '',
-      email: '',
-      message:'',
+      projectName: '',
+      projectTagline: '',
+      projectUrl: '',
+      email:'',
+      twitter:'',
       showModal: true
     });
   }
@@ -190,16 +189,24 @@ class ContactForm extends React.Component {
 
       <Form name="contact" onSubmit={this.handleSubmit} data-netlify="true" data-netlify-honeypot="bot" overlay={this.state.showModal} onClick={this.closeModal}>
 
-        <input type="hidden" name="form-name" value="contact" />
+        <InputBox type="hidden" name="form-name" value="contact" />
         <p hidden><label>Don’t fill this out: <input name="bot" onChange={this.handleInputChange} /></label></p>
 
-        <Name name="name" type="text" placeholder="Full Name" value={this.state.name} onChange={this.handleInputChange} required/>
-        <Email name="email" type="email" placeholder="Email" value={this.state.email} onChange={this.handleInputChange} required/>
-        <Message name="message" type="text" placeholder="Message" value={this.state.message} onChange={this.handleInputChange} required/>
-        <Submit name="submit" type="submit" value="Send" />
+        <InputBox name="projectName" type="text" placeholder="Project Name" value={this.state.projectName} onChange={this.handleInputChange} required/>
+
+        <InputBox name="projectTagline" type="text" placeholder="Tagline" value={this.state.projectTagline} onChange={this.handleInputChange} required/>
+
+        <InputBox name="projectUrl" type="text" placeholder="URL" value={this.state.projectUrl} onChange={this.handleInputChange} required/>
+
+        <Email name="email" type="email" placeholder="Email (Optional)" value={this.state.email} onChange={this.handleInputChange}/>
+
+        <InputBox name="twitter" type="text" placeholder="Twitter handle" value={this.state.twitter} onChange={this.handleInputChange} required/>
+
+        <Submit name="submit" type="submit" value="Submit Project" />
 
         <Modal visible={this.state.showModal}>
-          <p>Thank you for reaching out. I will get back to you as soon as possible.</p>
+          <p>Entries are typically posted weekly. Follow on <a href="https://twitter.com/madewithspark" target="_blank">Twitter</a> for updates.
+          </p>
           <Button onClick={this.closeModal}>Okay</Button>
         </Modal>
 
@@ -208,8 +215,8 @@ class ContactForm extends React.Component {
   }
 }
 
-ContactForm.propTypes = {
+SubmitForm.propTypes = {
   data: PropTypes.object,
 }
 
-export default ContactForm
+export default SubmitForm

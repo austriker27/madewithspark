@@ -6,7 +6,7 @@ import config from '../utils/siteConfig'
 import Container from '../components/Container'
 import PageTitle from '../components/PageTitle'
 import PageBody from '../components/PageBody'
-import ContactForm from '../components/ContactForm'
+import SubmitForm from '../components/SubmitForm'
 
 const Contact = ({data}) => {
 
@@ -20,8 +20,8 @@ const Contact = ({data}) => {
       </Helmet>
 
       <Container>
-        <PageTitle>Contact</PageTitle>
-        <ContactForm/>
+        <PageTitle>Submit your project Made With Spark</PageTitle>
+        <SubmitForm/>
       </Container>
 
     </div>
